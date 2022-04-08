@@ -133,7 +133,21 @@ router.get('/hello',function(req,res){
   let mon= (_.chunk(months,4))
     res.send(mon)
 });
-
+// router.get('/missingno/:a/:b',function(req,res){
+//     for (let i=req.params.a;i=req.params.b;i++){
+//         let ab=0;
+//         ab+=req.params.a
+       
+//     let num =[1,2,3,4,5,7,8,9]
+//     for(let i=0;i<num.length;i++){
+//         let sum =0
+//         sum =+ num[i]
+//         // let n;
+//         let miss=ab-sum;
+//         res.send(miss)
+//     }
+// }
+// });
 
 module.exports = router;
 // adding this comment for no reason
