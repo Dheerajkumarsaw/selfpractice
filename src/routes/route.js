@@ -46,8 +46,8 @@ router.get('/movies/:indexNumber', function (req,res){
     for(let i=0;i<movies.length;i++){
 // soluton of assignment que 3..==============
 // handeling edge case==========
-if (req.params.indexNumber!==i){
-    var mov='sorry you entered wrong input'
+if (req.params.indexNumber>movies.length-1){
+    res.send('sorry you entered wrong input')
 }
 //=================================
     if(req.params.indexNumber==i){
@@ -96,21 +96,35 @@ router.get('/films/:filmId', function(req,res){
         id: 4,
         "name": "Finding Nemo"
        }];
+       //==========================
+    // for(let i=0;i<arr1.length;i++){
+    //     // if()
+    // }
+       if (req.params.filmId>arr1.length-1){
+           res.send("no movie")
+       }
+       for(let i=0;i<arr1.length;i++){
+       if(req.params.filmId==arr1[i].id){
+           res.send(arr1[i])
+       }
+    }
+    //============================================
     //    for(let i=0;i<arr.length;i++){
     //    let film=arr.filter(req.query.params==i.id)
-       for(let i=0;i<arr1.length;i++){
+
+    //    for(let i=0;i<arr1.length;i++){
             // if (req.params.filmId!=arr1[i].id){
             //     var film="No movie exists with this id"
             // }
-            if (req.params.filmId==arr1[i].id){
-                var film=arr1[i]
-                console.log(film)
+            // if (req.params.filmId==arr1[i].id){
+                // var film=arr1[i]
+                // console.log(film)
                 // break;
-            }//else{
+            //else{
             // const de="No movie exists with this id"
             // }
-       }
-       res.send(film)
+    //    }
+    //    res.send(film)
     //    res.send(de)
 });
 
