@@ -1,5 +1,6 @@
 const express = require('express');
 const players=require('../players/player')
+const array=require('../controllers/array/array')
 const router = express.Router();
 
 router.get('/test-me', function (req, res) {
@@ -66,6 +67,7 @@ const randomController= require("../controllers/randomController.js")
 //write a post request to accept an element in post request body and add it to the given array and return the new array
 router.post('/test-post3', randomController.addToArray ); //HANDLER/CONTROLLER
 
-
+router.get('/missing',array.missing)
 
 module.exports = router;
+

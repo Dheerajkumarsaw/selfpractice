@@ -32,6 +32,9 @@ let players =
 let player=function(req,res){
     let newplayer=req.body;
     let data=req.body.name;
+    let data1=req.body.dob;
+    let data2=req.body.gender;
+    let data3=req.body.city;
     console.log(data)
     let change=players.find(el=>el.name===data)
     console.log(change)
