@@ -34,13 +34,24 @@ let allBooks=async function(req,res){
     // let getdata=await bookmodel.find({sales:{$eq:80}})
     // let getdata=await bookmodel.find().limit(9).count()
     // let getdata=await bookmodel.find().skip(3).limit(3)
-   let page= req.query.page
-   console.log(page)
-    let getdata=await bookmodel.find().skip(3*(page-1)).limit(3)
+//    let page= req.query.page
+//    console.log(page)
+    let getdata=await bookmodel.find({isPublished:false,new:true})//.skip(3*(page-1)).limit(3)
     res.send({getdata})
+}
+
+let pudata=async function(req,res){
+    // let put
+    let data=req.body;
+    let change=await bookmodel.find({isPublished:false}).select({_id:1})
+    let change1=await bookmodel.find().updateMany({_id:change},{$set:data},{new:true})
+    console.log(change)
+    console.log(change1)
+    res.send({msg :change1})
 }
 
 module.exports.createnewBook=createnewBook
 module.exports.createauther=createauther
 module.exports.createpublisher=createpublisher
 module.exports.allBooks=allBooks
+module.exports.pudata=pudata

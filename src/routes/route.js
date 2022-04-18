@@ -22,6 +22,6 @@ router.post("/createnewbook", newbookcontroller.createnewBook)
 router.post("/createautherdetais", newbookcontroller.createauther)
 router.post("/createpublisher", newbookcontroller.createpublisher)
 router.get("/getallbooks", newbookcontroller.allBooks)
-
+router.put("/putchange",newbookcontroller.pudata)
 
 module.exports = router;
